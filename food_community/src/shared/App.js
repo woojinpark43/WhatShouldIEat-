@@ -3,18 +3,14 @@ import "./App.css";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { PostList, Login, Signup } from "../pages";
 import Header from "./Header";
+import { history } from "../redux/configureStore";
 
 function App() {
   return (
     <React.Fragment>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" exact element={<PostList />} />
-        </Routes>
-      </BrowserRouter>
       <>
         <Header></Header>
-        <BrowserRouter>
+        <BrowserRouter history={history}>
           <Routes>
             <Route path="/" exact element={<PostList />} />
             <Route path="/login" exact element={<Login />} />
